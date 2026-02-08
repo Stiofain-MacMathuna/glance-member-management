@@ -18,7 +18,6 @@ class Command(BaseCommand):
         if Faker:
             fake = Faker()
         else:
-            # Fallback if Faker isn't installed
             class Fake:
                 def first_name(self): return "Physicist"
 
@@ -46,7 +45,7 @@ class Command(BaseCommand):
 
             fake = Fake()
 
-        # --- 1. Create Real Institutes (Expanded & Cleaned) ---
+        # --- 1. Create Real Institutes ---
         self.stdout.write("Creating Institutes...")
 
         # A. CERN Member States (The Core Funders)
@@ -145,8 +144,6 @@ class Command(BaseCommand):
         Qualification.objects.all().delete()
         Analysis.objects.all().delete()
         Member.objects.all().delete()
-        # Note: We keep institutes created above or previously exists, but you can delete if you want a clean slate
-        # Institute.objects.all().delete()
 
         # --- 3. Bulk Create 5,000 Members ---
         self.stdout.write("Generating 5,000 members...")
@@ -154,11 +151,11 @@ class Command(BaseCommand):
 
         # REALISTIC CERN CONTRACT TYPES
         statuses = [
-            'USER', 'USER', 'USER', 'USER',  # Majority are Users
-            'STAFF',  # Rare
-            'FELLOW', 'FELLOW',  # Junior Researchers
+            'USER', 'USER', 'USER', 'USER',
+            'STAFF',
+            'FELLOW', 'FELLOW',
             'DOCTORAL STUDENT', 'DOCTORAL STUDENT',
-            'PJAS',  # Project Associates (Real CERN term)
+            'PJAS',
             'TECHNICAL STUDENT'
         ]
 
@@ -247,7 +244,7 @@ class Command(BaseCommand):
         groups = ['ATLAS', 'CMS', 'ALICE', 'LHCb', 'TOTEM', 'LHCf', 'MOEDAL', 'FASER', 'SND']
         statuses = ["Draft", "Editor Review", "CWR (Collaboration Wide Review)", "Submitted", "Accepted"]
 
-        # REALISTIC HIGH IMPACT JOURNALS
+        # REALISTIC  JOURNALS
         journals = [
             "JHEP",  # Journal of High Energy Physics (Standard)
             "Phys. Rev. D",  # Physical Review D (Standard)
@@ -281,7 +278,6 @@ class Command(BaseCommand):
         saved_analyses = Analysis.objects.all()
 
         for paper in saved_analyses:
-            # Randomly assign 5 to 50 authors per paper
             authors = random.sample(all_members_list, k=random.randint(5, 50))
             paper.authors.set(authors)
 

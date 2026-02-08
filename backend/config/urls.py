@@ -25,6 +25,5 @@ urlpatterns = [
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
 
-    # FIXED: Added 'api/' prefix here so it matches the frontend request
     path('api/stats/', DashboardStatsView.as_view(), name='dashboard-stats'),
 ]

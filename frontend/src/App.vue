@@ -14,7 +14,7 @@ const legacyMode = ref(false)
 // Filters state
 const filters = ref({ country: '', institute: '', mo_status: '', status: '', group: '', phase: '' })
 
-// TIMEOUT VARIABLE (Fixed for Search Bar)
+// TIMEOUT VARIABLE
 let timeout = null
 
 // Data
@@ -138,7 +138,7 @@ const submitShift = async () => {
       member: selectedMember.value.id
     }
 
-    const response = await axios.post('http://127.0.0.1:8000/api/shifts/', payload)
+    const response = await axios.post('/api/shifts/', payload)
 
     if (!selectedMember.value.shifts) selectedMember.value.shifts = []
 
@@ -172,7 +172,7 @@ const deleteShift = async (shiftId) => {
 
   try {
     const shiftToRemove = selectedMember.value.shifts.find(s => s.id === shiftId)
-    await axios.delete(`http://127.0.0.1:8000/api/shifts/${shiftId}/`)
+    await axios.delete(`/api/shifts/${shiftId}/`)
     selectedMember.value.shifts = selectedMember.value.shifts.filter(s => s.id !== shiftId)
     selectedDayData.value.shifts = selectedDayData.value.shifts.filter(s => s.id !== shiftId)
 
@@ -216,7 +216,7 @@ axios.interceptors.response.use(
 
 // --- FETCHING ---
 const buildUrl = (endpoint, forExport = false) => {
-  const baseUrl = `http://127.0.0.1:8000/api/${endpoint}/`
+  const baseUrl = `/api/${endpoint}/`
   const finalBase = forExport ? `${baseUrl}export/` : baseUrl
 
   const query = searchQuery.value ? `?search=${encodeURIComponent(searchQuery.value)}` : '?'
@@ -242,7 +242,7 @@ const buildUrl = (endpoint, forExport = false) => {
 const fetchStats = async () => {
   loading.value = true
   try {
-    const response = await axios.get('http://127.0.0.1:8000/api/stats/')
+    const response = await axios.get('/api/stats/')
     stats.value = response.data
   } catch (err) { console.error(err) }
   loading.value = false
@@ -332,7 +332,7 @@ const downloadCurrentPage = () => {
 
 const login = async () => {
   try {
-    const response = await axios.post('http://127.0.0.1:8000/api/token/', { username: loginForm.value.username, password: loginForm.value.password })
+    const response = await axios.post('/api/token/', { username: loginForm.value.username, password: loginForm.value.password })
     localStorage.setItem('access_token', response.data.access)
     isLoggedIn.value = true; showLoginModal.value = false; loadData()
   } catch (err) { alert("Login failed! Ensure user 'cern' exists.") }
@@ -354,7 +354,8 @@ const closeModals = () => { selectedMember.value = null; selectedPaper.value = n
 const saveMember = async () => {
   if (!selectedMember.value) return
   try {
-    await axios.patch(`http://127.0.0.1:8000/api/members/${selectedMember.value.id}/`, editForm.value)
+    // UPDATED: Relative URL for Docker/Nginx
+    await axios.patch(`/api/members/${selectedMember.value.id}/`, editForm.value)
     Object.assign(selectedMember.value, editForm.value)
     if (selectedMember.value.auditLogs) {
       selectedMember.value.auditLogs.unshift({

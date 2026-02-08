@@ -121,7 +121,6 @@ class AnalysisTrackerTests(APITestCase):
 
     def test_filter_by_target_journal(self):
         """Ensure we can filter by the new journal field"""
-        # Note: This requires 'target_journal' to be in search_fields in views.py
         url = '/api/analyses/?search=Nature'
         response = self.client.get(url)
 

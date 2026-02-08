@@ -24,12 +24,10 @@ class Member(models.Model):
     institute = models.ForeignKey(Institute, on_delete=models.CASCADE)
     email = models.EmailField()
 
-    # FIX: Increased max_length from 10 to 50 to fit 'DOCTORAL STUDENT'
     cern_status = models.CharField(max_length=50, choices=STATUS_CHOICES, default='USER')
 
     is_active = models.BooleanField(default=True)
 
-    # M&O Flag for Super Search
     is_mo_qualified = models.BooleanField(default=False, help_text="Counted for Maintenance & Operations statistics")
 
     contract_end_date = models.DateField(null=True, blank=True)
