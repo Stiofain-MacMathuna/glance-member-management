@@ -15,9 +15,8 @@ SECRET_KEY = 'django-insecure-lzot32hjr*1wihcok*b4=*x!t&=+^5w%5@&o4e^cl2)j0r+7=*
 # For this demo, True is fine to see errors if they happen.
 DEBUG = True
 
-# Docker/Nginx specific hosts
-ALLOWED_HOSTS = ['backend', 'localhost', '127.0.0.1', '0.0.0.0']
-
+# All hosts allowed for EC2 (demo)
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
