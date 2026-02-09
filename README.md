@@ -76,29 +76,3 @@ Add a section under **"Projects"** or **"Technical Experience"**. Choose the bul
 
 ---
 
-### **3. LinkedIn "Featured" Section / Post**
-Since it's late, you can post this tomorrow, but here is the draft ready to go.
-
-**Headline:**
-*Just deployed a new full-stack project: GLANCE (CERN Incubator Dashboard).*
-
-**Body:**
-> I’ve been working on a solution to modernize how large research collaborations manage their personnel and analysis workflows.
->
-> **Meet GLANCE:** A full-stack management platform designed with the scale of the CMS Experiment in mind.
->
-> **The Tech Stack:**
-> * **Frontend:** Vue.js 3 + Chart.js for real-time data visualization.
-> * **Backend:** Django 5 & DRF for robust API management.
-> * **Infrastructure:** Dockerized and deployed on AWS EC2 with Nginx & Let's Encrypt SSL.
->
-> **What it does:**
-> It tracks 5,000+ members, manages control room shift schedules, and visualizes the lifecycle of scientific papers—all wrapped in a clean "Enterprise" UI (with a hidden "Legacy Mode" for the nostalgia).
->
-> Check out the live demo here: [https://smcmahon-cms-glance-demo.com](https://smcmahon-cms-glance-demo.com)
->
-> *(Login: cern / cms123)*
->
-> #FullStack #Django #VueJS #AWS #Docker #CERN #SoftwareEngineering
-
----
