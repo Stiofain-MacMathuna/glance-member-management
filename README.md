@@ -54,17 +54,7 @@ docker compose exec backend python manage.py seed_glance
 
 Access the app locally at http://localhost:8080.
 
-## Deployment (AWS)
-
-This project is deployed on an AWS EC2 t3.micro instance.
-
-- OS: Ubuntu 24.04 LTS
-
-- Security: HTTPS enforced via Certbot & Nginx Reverse Proxy.
-
-- Optimization: Configured with Swap memory to handle build processes on low-resource infrastructure.
-
-## Testing & Quality Assurance
+## Testing
 
 The project implements a dual-layer testing strategy to ensure reliability across the stack:
 
@@ -82,5 +72,28 @@ Uses Django's native test runner to validate API endpoints, database models, and
 ```Bash
 docker compose exec backend python manage.py test
 ```
+
+## Deployment (AWS)
+
+This project is deployed on an AWS EC2 t3.micro instance.
+
+- OS: Ubuntu 24.04 LTS
+
+- Security: HTTPS enforced via Certbot & Nginx Reverse Proxy.
+
+- Optimization: Configured with Swap memory to handle build processes on low-resource infrastructure.
+
+## Gallery
+
+<div align="center">
+  <img src="screenshots/incubator_dashboard.png" alt="Incubator Dashboard" width="800">
+  <p><em>The Main Dashboard: Real-time KPIs and workforce composition</em></p>
+  
+  <br>
+
+  <img src="screenshots/calendar_view.png" alt="Shift Scheduler" width="800">
+  <p><em>Shift Management: Interactive calendar for assigning Control Room duties</em></p>
+</div>
+
 ---
 
