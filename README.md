@@ -65,14 +65,3 @@ This project is deployed on an AWS EC2 t3.micro instance.
 
 ---
 
-### **2. CV / Resume Updates**
-Add a section under **"Projects"** or **"Technical Experience"**. Choose the bullet points that fit your space best.
-
-**Project Title:** **GLANCE – CERN Member & Analysis Tracker**
-* **Full-Stack Development:** Built a responsive dashboard using **Vue.js 3** and **Django REST Framework** to manage and visualize a dataset of 5,000+ personnel and scientific publications.
-* **Cloud Infrastructure:** Deployed a production-grade environment on **AWS EC2** using **Docker Compose**, configuring an **Nginx Reverse Proxy** for SSL termination and secure traffic routing.
-* **DevOps Best Practices:** Implemented automated database seeding scripts and containerized the application for consistent deployment across development and production environments.
-* **Feature Engineering:** Designed an interactive shift-scheduling calendar and KPI visualization tools to solve specific administrative bottlenecks in large-scale research collaborations.
-
----
-
