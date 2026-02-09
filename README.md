@@ -33,6 +33,7 @@ The application follows a containerized microservices architecture:
 1.  **Nginx (Host):** Handles SSL termination and forwards traffic to the internal Docker network.
 2.  **Frontend Container:** Serves the built Vue.js static files via an internal Nginx instance.
 3.  **Backend Container:** Runs the Django API via Gunicorn.
+4.  **Database:** SQLite (Demo) / Ready for PostgreSQL (Production).
 
 ## Local Installation
 
@@ -63,5 +64,23 @@ This project is deployed on an AWS EC2 t3.micro instance.
 
 - Optimization: Configured with Swap memory to handle build processes on low-resource infrastructure.
 
+## Testing & Quality Assurance
+
+The project implements a dual-layer testing strategy to ensure reliability across the stack:
+
+### Frontend Unit Tests (Vitest)
+
+Validates component logic and system integrity using the **Vitest** runner.
+```bash
+cd frontend
+npm run test:unit
+```
+
+### Backend Integration Tests (Django)
+
+Uses Django's native test runner to validate API endpoints, database models, and authentication logic.
+```Bash
+docker compose exec backend python manage.py test
+```
 ---
 
