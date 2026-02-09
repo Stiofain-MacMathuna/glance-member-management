@@ -51,9 +51,9 @@ docker compose exec backend python manage.py migrate
 docker compose exec backend python manage.py seed_glance
 ```
 
-Access the app at http://localhost:8080.
+Access the app locally at http://localhost:8080.
 
-Deployment (AWS)
+## Deployment (AWS)
 
 This project is deployed on an AWS EC2 t3.micro instance.
 
