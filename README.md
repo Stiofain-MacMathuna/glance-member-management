@@ -57,11 +57,11 @@ Deployment (AWS)
 
 This project is deployed on an AWS EC2 t3.micro instance.
 
-    OS: Ubuntu 24.04 LTS
+- OS: Ubuntu 24.04 LTS
 
-    Security: HTTPS enforced via Certbot & Nginx Reverse Proxy.
+- Security: HTTPS enforced via Certbot & Nginx Reverse Proxy.
 
-    Optimization: Configured with Swap memory to handle build processes on low-resource infrastructure.
+- Optimization: Configured with Swap memory to handle build processes on low-resource infrastructure.
 
 ---
 
