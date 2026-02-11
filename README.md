@@ -1,4 +1,4 @@
-# GLANCE - CMS Incubator Management System
+# CERN GLANCE Tehcnical Demonstration - CMS Management System
 
 ![Status](https://img.shields.io/badge/Status-Live-success)
 ![Docker](https://img.shields.io/badge/Docker-Containerized-blue)
@@ -10,7 +10,7 @@
 *(Login: `cern` / `cms123`)*
 
 ## Overview
-GLANCE is a full-stack incubator dashboard designed to streamline personnel and analysis management for the **CMS Experiment at CERN**. 
+This is a technical demonstration of the CERN glance system. It is a full-stack solution dashboard designed to streamline personnel and analysis management for the **CMS Experiment at CERN**. 
 
 It solves the administrative challenge of tracking over **5,000+ members**, their M&O (Maintenance & Operations) qualifications, shift duties, and the lifecycle of scientific papers from "Draft" to "Published."
 
