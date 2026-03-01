@@ -1,4 +1,4 @@
-# GLANCE - CMS Incubator Management System
+# CERN GLANCE Tehcnical Demonstration - CMS Management System
 
 ![Status](https://img.shields.io/badge/Status-Live-success)
 ![Docker](https://img.shields.io/badge/Docker-Containerized-blue)
@@ -10,7 +10,7 @@
 *(Login: `cern` / `cms123`)*
 
 ## Overview
-GLANCE is a full-stack incubator dashboard designed to streamline personnel and analysis management for the **CMS Experiment at CERN**. 
+This is a technical demonstration of the CERN glance system. It is a full-stack solution dashboard designed to streamline personnel and analysis management for the **CMS Experiment at CERN**. 
 
 It solves the administrative challenge of tracking over **5,000+ members**, their M&O (Maintenance & Operations) qualifications, shift duties, and the lifecycle of scientific papers from "Draft" to "Published."
 
@@ -33,6 +33,7 @@ The application follows a containerized microservices architecture:
 1.  **Nginx (Host):** Handles SSL termination and forwards traffic to the internal Docker network.
 2.  **Frontend Container:** Serves the built Vue.js static files via an internal Nginx instance.
 3.  **Backend Container:** Runs the Django API via Gunicorn.
+4.  **Database:** SQLite (Demo) / Ready for PostgreSQL (Production).
 
 ## Local Installation
 
@@ -53,6 +54,25 @@ docker compose exec backend python manage.py seed_glance
 
 Access the app locally at http://localhost:8080.
 
+## Testing
+
+The project implements a dual-layer testing strategy to ensure reliability across the stack:
+
+### Frontend Unit Tests (Vitest)
+
+Validates component logic and system integrity using the **Vitest** runner.
+```bash
+cd frontend
+npm run test:unit
+```
+
+### Backend Integration Tests (Django)
+
+Uses Django's native test runner to validate API endpoints, database models, and authentication logic.
+```Bash
+docker compose exec backend python manage.py test
+```
+
 ## Deployment (AWS)
 
 This project is deployed on an AWS EC2 t3.micro instance.
@@ -62,6 +82,18 @@ This project is deployed on an AWS EC2 t3.micro instance.
 - Security: HTTPS enforced via Certbot & Nginx Reverse Proxy.
 
 - Optimization: Configured with Swap memory to handle build processes on low-resource infrastructure.
+
+## Gallery
+
+<div align="center">
+  <img src="screenshots/incubator_dashboard.png" alt="Incubator Dashboard" width="800">
+  <p><em>The Main Dashboard: Real-time KPIs and workforce composition</em></p>
+  
+  <br>
+
+  <img src="screenshots/calendar_view.png" alt="Shift Scheduler" width="800">
+  <p><em>Shift Management: Interactive calendar for assigning Control Room duties</em></p>
+</div>
 
 ---
 
